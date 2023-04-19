@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Us</title>
+    <link rel="stylesheet" href="contactStyle.css"/>
+    <!--<link rel="stylesheet" href="Mzamo_css.css"/>-->
+</head>
+<body>
+   <div class="container">
+      <form id="form1" onsubmit="sendEmail(); return false;">
+        <h3>GET IN TOUCH</h3>
+        <div>
+          <input type="text" id="names" placeholder="Your Full Name"/>
+        </div>
+
+        <div>
+          <input type="text" id="phone" placeholder="Your Phone Number"/>
+        </div>
+
+        <div>
+          <textarea id="message" rows="4" placeholder="Your Message"></textarea>
+        </div>
+                <!--<input type="email" id="email" placeholder="Email" required>-->        
+        <div>
+          <button type="submit">Send</button>
+        </div>        
+      </form>
+      </div>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+        function sendEmail(){
+        Email.send({
+        Host : "smtp.elasticemail.com",
+        Username : "oh45675@outlook.com",
+        Password : "9913DEDBC48EAF416A8A4C45F16E21A2AB3B",
+        To : 'oh45675@outlook.com',
+        From : "oh45675@outlook.com",
+        Subject : "New Message Enquiry",
+        Body : "Name: " + document.getElementById("names").value 
+                        //+ "<br> Email: " + document.getElementById("email").value
+                        + "<br> Phone no: " + document.getElementById("phone").value 
+                        + "<br> Message: " + document.getElementById("message").value
+        });
+
+        if (window.confirm("Message sent successfully! Go to Home page?")) {
+                    window.location.href = 'index.html';
+        }
+        else {
+            window.location.href = 'contactUs.html';
+        };
+
+
+        }
+
+</script>
+</body> 
+</html>
